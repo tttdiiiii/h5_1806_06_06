@@ -1,0 +1,95 @@
+$bg-color : #15be74;
+$width: 1000px;
+
+*{
+	margin:0;
+	padding:0;
+}
+
+@import "outer";
+
+// comment
+/* this is comment */
+.container {
+	width: $width;
+	height:50px;
+	background:$bg-color;
+}
+
+.box {
+	width: $width / 5;
+	height: 30px;
+	background-color: $bg-color;
+}
+
+ul {
+	list-style: none;
+	li {
+		width: $width / 4;
+		background: {
+			color : $bg-color;
+			image: url("yyyy.png");
+			repeat: no-repeat;
+		}
+		.link {
+			display: block;
+			color: #777777;
+			&:hover {
+				text-decoration:none;
+				color:#15be74;
+			}
+			&:visited {
+				text-decoration: line-through;
+			}
+		}
+	}
+}
+
+@mixin base($w:300px) {
+	width: $w;
+	height: 500px;
+	color: #ccc;
+	border: 1px solid;
+	margin: 5px;
+	padding: 10px;
+}
+
+.test1 {
+	@include base;
+}
+
+.test2 {
+	@include base(300px);
+
+	font-size: 15px;
+}
+
+.test3 {
+	@include base(500px);
+	font-weight: bold;
+}
+
+.box1 {
+	width: 30px;
+	height: 50px;
+	background: #666;
+	margin: 5px;
+	padding: 3px;
+	border: 1px solid #ccc;
+}
+
+.box2 {
+	@extend .box1;
+	font-size: 12px;
+}
+
+.box3 {
+	@extend .box1;
+	font-weight: bold;
+}
+
+@for $i from 1 through 10 {
+	.m-#{$i} {
+		margin: #{$i}px;
+	}
+}

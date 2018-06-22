@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模块化</title>
+</head>
+<body>
+	<script src="lib/require/require.js"></script>
+	<script>
+		require(["module/tools.js", "module/ajax.js"], function(tools, ajax){
+			// tools.$();
+			// tools.css();
+			tools.on();
+			ajax.get();
+			// console.log(arguments)
+		});
+	</script>
+
+	<script>
+		require(["module/config"], function(){
+			require(["c", "a"], function(c, a){
+				c.carousel();
+				a.get();
+				a.post();
+			});
+		});
+		
+	</script>
+</body>
+</html>

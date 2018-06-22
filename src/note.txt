@@ -1,0 +1,74 @@
+CSS预处理器：sass、less
+
+SASS：
+	https://www.sass.hk/
+	以类似JavaScript编程方式来实现CSS开发
+	安装：
+		sass基于Ruby语言开发而成，因此安装sass前需要安装Ruby。
+	保存文件：
+		文件后缀：.scss
+	编译：
+		排版风格：nested、expanded、compact、compressed
+		编译方式：命令行、GUI（软件方式：koala）、自动化构建工具（gulp-插件）
+
+使用：
+	变量：
+		定义   $width : 1000px;
+		调用   $width / 3
+	嵌套：
+	导入：
+		@import
+	注释：
+	混合器(大段代码复用)：
+		@mixin 混合器名称(参数) {
+			复用的代码片段
+		}
+		@include
+	继承：
+		@extend
+	流程控制：
+		@if - @else
+		@for
+			@for $var from <start> through <end> 包括end
+			或者 
+			@for $var from <start> to <end> 不包括end
+		@while
+		@each
+	函数：
+		@function 函数名(参数) {
+			函数主体
+			@return 表达式;
+		}
+
+RequireJS
+	http://requirejs.org/
+	模块化开发
+	教程：http://www.runoob.com/w3cnote/requirejs-tutorial-1.html
+			  http://www.runoob.com/w3cnote/requirejs-tutorial-2.html
+
+	是一个非常小巧的JavaScript模块载入框架，是AMD规范最好的实现者之一。
+
+	AMD(异步模块定义)：RequireJS
+	CMD(通用模块定义)：SeaJS
+	CommonJS：NodeJS/webpack
+
+	使用：
+		a. 下载js库
+		b. 三个变量
+			requirejs,require -- 通常用于引入依赖模块(require)
+			define -- 通常用于定义模块(module.exports)
+		c. 定义模块
+			define(name, array, callback)
+				name -- 模块名称
+				array -- 数组，是当前定义的模块所依赖的其它模块
+				callback -- 回调函数，模块需要实现的功能
+		d. 引入模块
+			require(array, callback);
+				array -- 数组，是依赖的模块
+				callback -- 回调函数，引入依赖模块后完成的任务
+		e. 配置短名称
+			require.config({
+				paths : {
+					attr : "path/path/name"
+				}
+			});
